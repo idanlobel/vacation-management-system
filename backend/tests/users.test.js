@@ -48,10 +48,10 @@ describe('Users API', () => {
             expect(response.body.message).toBe('User not found');
         });
 
-        it('should return 400 for invalid user ID', async () => {
+        it('should return 404 for invalid user ID', async () => {
             const response = await request(app)
                 .get('/api/users/invalid')
-                .expect(400);
+                .expect(404);
 
             expect(response.body.success).toBe(false);
         });
